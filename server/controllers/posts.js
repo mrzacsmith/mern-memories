@@ -24,7 +24,17 @@ const getPosts = async (req, res) => {
 
 // @desc		Get a  by id
 // @route 		GET /:id
-const getPostsbyId = (req, res) => {}
+const getPostsbyId = async (req, res) => {
+  const post = req.body
+  const newPost = new Post(post)
+
+  try {
+    await newPost.save()
+    res.status(201).json(newPost)
+  } catch (error) {
+    res.status(404).json({ message: error.message })
+  }
+}
 
 // @desc		Add a new
 // @route 		POST /
