@@ -4,16 +4,16 @@ const {
   getTest,
   getPosts,
   getPostsbyId,
-  createPosts,
-  updatePosts,
-  deletePosts,
+  createPost,
+  updatePost,
+  deletePost,
 } = require('../controllers/posts.js')
 
 router.get('/test', getTest)
 router.get('/', getPosts)
 router.get('/:id', getPostsbyId)
-router.post('/', createPosts)
-router.put('/:id', updatePosts)
-router.delete('/:id', deletePosts)
+router.post('/', createPost)
+router.put('/:id', updatePost)
+router.delete('/:id', deletePost)
 
 module.exports = router

@@ -1,3 +1,6 @@
+const { restart } = require('nodemon')
+const Post = require('../models/Posts.js')
+
 const currentTime = new Date().toLocaleTimeString()
 
 // @desc		Test endpoint is working
@@ -10,7 +13,14 @@ const getTest = (req, res) => {
 
 // @desc		Get all s
 // @route 		GET /
-const getPosts = (req, res) => {}
+const getPosts = async (req, res) => {
+  try {
+    const posts = await Post.find()
+    res.status(200).json(posts)
+  } catch (error) {
+    res.status(404).json({ message: error.message })
+  }
+}
 
 // @desc		Get a  by id
 // @route 		GET /:id
@@ -18,21 +28,21 @@ const getPostsbyId = (req, res) => {}
 
 // @desc		Add a new
 // @route 		POST /
-const createPosts = (req, res) => {}
+const createPost = (req, res) => {}
 
 // @desc		Update a  by id
 // @route 		PUT /:id
-const updatePosts = (req, res) => {}
+const updatePost = (req, res) => {}
 
 // @desc		Remove a  by id
 // @route 		DELETE /:id
-const deletePosts = (req, res) => {}
+const deletePost = (req, res) => {}
 
 module.exports = {
   getTest,
   getPosts,
   getPostsbyId,
-  createPosts,
-  updatePosts,
-  deletePosts,
+  createPost,
+  updatePost,
+  deletePost,
 }
