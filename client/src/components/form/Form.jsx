@@ -3,7 +3,7 @@ import { TextField, Button, Typography, Paper } from '@material-ui/core'
 import { useDispatch, useSelector } from 'react-redux'
 import FileBase from 'react-file-base64'
 import useStyles from './styles.js'
-import { createPost, updatepost } from '../../actions/posts'
+import { createPost, updatePost } from '../../actions/posts'
 const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({
     creator: '',
