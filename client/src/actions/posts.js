@@ -9,3 +9,7 @@ export const getPosts = () => async (dispatch) => {
     console.log(error.message)
   }
 }
+
+export const updatePost = () => async (dispatch) => {}
+
+export const createPost = () => async (dispatch) => {}
